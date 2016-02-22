@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
+</head>
+<body>
+
+		<div id="container" class="container-image">
+			<div id="btn">
+				<button id="prev">Prev</button>
+				<button id="next">Next</button>
+			</div>	
+			<img class="img" src="http://www.zooclub.ru/skat/img.php?w=700&h=700&img=./attach/6287.jpg">
+			<img class="img" src="http://doseng.org/uploads/posts/2011-08/1313535795_1300696354_1300435245_kotomatrix_07.jpg">
+			<img class="img" src="http://www.zooclub.ru/skat/img.php?w=700&h=700&img=./attach/6314.jpg">
+		</div>
+
+<script>
+
+var items = document.getElementsByClassName('img');
+var i = 0;
+var c = items.length; 
+
+ items[i].style.display = "block";
+
+
+
+document.getElementById('next').addEventListener('click', function(){
+	items[i].style.display = '';
+	i += 1;
+	if (i == c) {	
+		i = 0;
+	};
+	items[i].style.display = 'block';
+
+});
+document.getElementById('prev').addEventListener('click', function(){
+	items[i].style.display = '';
+	i -= 1;
+	if (i < 0) {	
+		i = c - 1;
+	};
+	items[i].style.display = 'block';
+});
+setInterval(function(){
+	document.getElementById('next').click();
+}, 5000);
+</script>
+</body>
+</html>
